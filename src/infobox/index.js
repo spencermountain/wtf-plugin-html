@@ -1,12 +1,11 @@
 const dontDo = require('./_skip-keys')
-const setDefaults = require('../_lib/setDefaults')
 const defaults = {
   images: true
 }
 
 //
 const infobox = function(obj, options) {
-  options = setDefaults(options, defaults)
+  options = Object.assign({}, defaults, options)
   let html = '<table class="infobox">\n'
   html += '  <thead>\n'
   html += '  </thead>\n'

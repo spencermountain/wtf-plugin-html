@@ -1,4 +1,3 @@
-const setDefaults = require('./_lib/setDefaults')
 const defaults = {
   headers: true,
   images: true,
@@ -7,7 +6,7 @@ const defaults = {
   paragraphs: true
 }
 const doSection = function(options) {
-  options = setDefaults(options, defaults)
+  options = Object.assign({}, defaults, options)
   let html = ''
   //make the header
   if (options.headers === true && this.title()) {

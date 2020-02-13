@@ -1,5 +1,4 @@
 const smartReplace = require('./_lib/smartReplace')
-const setDefaults = require('./_lib/setDefaults')
 
 const defaults = {
   links: true,
@@ -7,7 +6,7 @@ const defaults = {
 }
 // create links, bold, italic in html
 const doSentence = function(options) {
-  options = setDefaults(options, defaults)
+  options = Object.assign({}, defaults, options)
   let text = this.text()
   //turn links into <a href>
   if (options.links === true) {

@@ -1,4 +1,3 @@
-const setDefaults = require('./_lib/setDefaults')
 const defaults = {
   title: true,
   infoboxes: true,
@@ -21,7 +20,7 @@ const softRedirect = function(doc) {
 
 //turn a Doc object into a HTML string
 const toHtml = function(options) {
-  options = setDefaults(options, defaults)
+  options = Object.assign({}, defaults, options)
   let data = this.data
   let html = ''
   html += '<!DOCTYPE html>\n'

@@ -1,11 +1,9 @@
-const setDefaults = require('../_lib/setDefaults')
-
 const defaults = {
   sentences: true
 }
 
 const toHtml = function(options) {
-  options = setDefaults(options, defaults)
+  options = Object.assign({}, defaults, options)
   let html = ''
   if (options.sentences === true) {
     html += this.sentences()

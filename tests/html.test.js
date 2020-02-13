@@ -1,6 +1,6 @@
 'use strict'
 var test = require('tape')
-var wtf = require('./lib')
+var wtf = require('./_lib')
 var tidy = str => {
   str = str.replace(/\s[\s]+/g, ' ')
   str = str.replace(/\n/g, '')
@@ -24,7 +24,7 @@ test('basic-html', t => {
 </body>
 </html>
 `
-  t.equal(tidy.html(have), tidy.html(want), 'link')
+  t.equal(tidy(have), tidy(want), 'link')
 
   //1 tick
   have = wtf(`i 'think' so`).html()
@@ -42,7 +42,7 @@ test('basic-html', t => {
 </body>
 </html>
 `
-  t.equal(tidy.html(have), tidy.html(want), 'link-blank')
+  t.equal(tidy(have), tidy(want), 'link-blank')
 
   //2 ticks
   have = wtf(`i ''think'' so`).html()
@@ -60,7 +60,7 @@ test('basic-html', t => {
 </body>
 </html>
 `
-  t.equal(tidy.html(have), tidy.html(want), 'italic')
+  t.equal(tidy(have), tidy(want), 'italic')
 
   //3 ticks
   have = wtf(`i '''think''' so`).html()
@@ -78,7 +78,7 @@ test('basic-html', t => {
 </body>
 </html>
 `
-  t.equal(tidy.html(have), tidy.html(want), '3-ticks')
+  t.equal(tidy(have), tidy(want), '3-ticks')
 
   //4 ticks
   have = wtf(`i ''''think'''' so`).html()
@@ -96,7 +96,7 @@ test('basic-html', t => {
 </body>
 </html>
 `
-  t.equal(tidy.html(have), tidy.html(want), '4 ticks')
+  t.equal(tidy(have), tidy(want), '4 ticks')
 
   //5 ticks
   have = wtf(`i '''''think''''' so`).html()
@@ -114,7 +114,7 @@ test('basic-html', t => {
 </body>
 </html>
 `
-  t.equal(tidy.html(have), tidy.html(want), '5-ticks')
+  t.equal(tidy(have), tidy(want), '5-ticks')
 
   //-------------------
   t.end()
